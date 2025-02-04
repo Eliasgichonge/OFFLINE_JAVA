@@ -43,19 +43,20 @@ class Student1 {
 
     // Method to create Student1 object from user input
     public static Student1 fromUserInput() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter student name: ");
-        String name = scanner.nextLine();
-        System.out.print("Enter registration number: ");
-        String regNumber = scanner.nextLine();
-        System.out.print("Enter number of subjects: ");
-        int numSubjects = scanner.nextInt();
-        int[] marks = new int[numSubjects];
-        System.out.println("Enter marks:");
-        for (int i = 0; i < numSubjects; i++) {
-            marks[i] = scanner.nextInt();
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Enter student name: ");
+            String name = scanner.nextLine();
+            System.out.print("Enter registration number: ");
+            String regNumber = scanner.nextLine();
+            System.out.print("Enter number of subjects: ");
+            int numSubjects = scanner.nextInt();
+            int[] marks = new int[numSubjects];
+            System.out.println("Enter marks:");
+            for (int i = 0; i < numSubjects; i++) {
+                marks[i] = scanner.nextInt();
+            }
+            return new Student1(name, regNumber, marks);
         }
-        return new Student1(name, regNumber, marks);
     }
 
     public static void main(String[] args) {
